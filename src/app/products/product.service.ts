@@ -1,7 +1,7 @@
 //manipulacion
 import {faker} from '@faker-js/faker';
 import {Product} from './product.model';
-import {CreateProductDto, UpdateProductDto} from './productDto'
+import {CreateProductDto, UpdateProductDto, FindProductDto} from './productDto'
 
 
 export const products : Product[] = [];
@@ -26,7 +26,7 @@ export const addProduct = (data:CreateProductDto) => {
 }
 
 
-export const updateProduct = (id: string, changes: UpdateProductDto):Product=> {
+export const updateProduct = (id: Product['id'], changes: UpdateProductDto):Product=> { //con Product['id'] obtengo el tipado del valor, se hace de manera automática
   // code
   const index = products.findIndex(item => item.id === id);
   const prevDta = products[index];
@@ -37,4 +37,13 @@ export const updateProduct = (id: string, changes: UpdateProductDto):Product=> {
   return products[index];
 
 }
+
+
+export const findProducts = (dto: FindProductDto): Product[] =>{
+  //codigo de filtro
+  /* dto.color = 'blue'; */
+  return products;
+}
+
+
 

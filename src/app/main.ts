@@ -1,4 +1,4 @@
-import { addProduct, products, updateProduct} from './products/product.service' ;
+import { addProduct, products, updateProduct, findProducts} from './products/product.service' ;
 import {faker} from '@faker-js/faker';
 
 
@@ -21,5 +21,20 @@ console.log(products);
 
 const product1 = products[0];
 
+console.log('El id del primer producto es: ',typeof(product1.id));
 
+
+updateProduct(product1.id,{
+  title: 'Hola a todoss',
+  price: 5000,
+})
+console.log("---------------",product1);
+
+
+findProducts({
+  stock: 10,
+  color : 'red',
+  isNew: true,
+
+})
 
